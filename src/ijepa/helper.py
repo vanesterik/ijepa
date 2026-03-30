@@ -97,7 +97,6 @@ def init_model(
 
     encoder.to(device)
     predictor.to(device)
-    logger.info(encoder)
     return encoder, predictor
 
 
@@ -150,7 +149,6 @@ def init_opt(
         },
     ]
 
-    logger.info("Using AdamW")
     optimizer = torch.optim.AdamW(param_groups)
     scheduler = WarmupCosineSchedule(
         optimizer,
