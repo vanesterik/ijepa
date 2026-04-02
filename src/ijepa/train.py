@@ -316,8 +316,8 @@ def main(args, resume_preempt=False):
                     return loss
 
                 # Step 1. Forward
-                with torch.cuda.amp.autocast(
-                    dtype=torch.bfloat16, enabled=use_bfloat16
+                with torch.autocast(
+                    device_type=device.type, dtype=torch.bfloat16, enabled=use_bfloat16
                 ):
                     h = forward_target()
                     z = forward_context()
